@@ -17,22 +17,22 @@ export default function TaskList() {
     try {
       const q = searchParams.toString();
 
+      // Fetch tasks based on query params
       const tasksRes = await fetch(
         `https://workasana-gamma.vercel.app/tasks?${q}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       setTasks(await tasksRes.json());
 
-      const [teamsRes, projectsRes, userRes, tagsRes] = await Promise.all([
+      // Fetch all other data in parallel
+      const [teamsRes, projectsRes, usersRes, tagsRes] = await Promise.all([
         fetch("https://workasana-gamma.vercel.app/teams", {
           headers: { Authorization: `Bearer ${token}` },
         }),
         fetch("https://workasana-gamma.vercel.app/projects", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("https://workasana-gamma.vercel.app/auth/me", {
+        fetch("https://workasana-gamma.vercel.app/users", {
           headers: { Authorization: `Bearer ${token}` },
         }),
         fetch("https://workasana-gamma.vercel.app/tags", {
@@ -42,10 +42,7 @@ export default function TaskList() {
 
       setTeams(await teamsRes.json());
       setProjects(await projectsRes.json());
-
-      const user = await userRes.json();
-      setOwners(user ? [user] : []);
-
+      setOwners(await usersRes.json()); // <-- now all users
       setTags(await tagsRes.json());
     } catch (err) {
       console.error("Failed to load task list data", err);
@@ -90,10 +87,7 @@ export default function TaskList() {
             label: "Status",
             name: "status",
             options: ["To Do", "In Progress", "Completed", "Blocked"].map(
-              (s) => ({
-                id: s,
-                name: s,
-              })
+              (s) => ({ id: s, name: s })
             ),
           },
           {
@@ -168,3 +162,4 @@ export default function TaskList() {
     </div>
   );
 }
+
