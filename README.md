@@ -5,7 +5,7 @@ WorkAsana is a full-stack project management web application built using the MER
 ---
 ## Demo Link
 
-[Live Demo](https://workasana-app.vercel.app/)
+[Live Demo](https://workasana-wx7v.vercel.app/login)
 
 ## Quick Start
 
@@ -124,4 +124,5 @@ Sample Response:<br>
 ```{"byTeam": {"Development": 5, "Marketing": 2}, "byOwner": {...}}```
 
 ## Contact 
+
 For bugs or feature requests, please reach out to muhasinalikhan@gmail.com
