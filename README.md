@@ -19,22 +19,7 @@ npm run dev   # or `npm start`
 ```
 ---
 
-# WorkAsana
 
-WorkAsana is a full-stack project management web application built using the MERN Stack that helps teams manage tasks, assign owners, track progress across different teams and projects, and analyze productivity through visual reports. The system is designed to provide a structured, collaborative workflow for teams to manage their daily operations effectively.
-
----
-## Demo Link
-
-[Live Demo](https://workasana-app.vercel.app/)
-
-## Quick Start
-
----
-
-git clone https://github.com/YourUsername/WorkAsana.git cd WorkAsana npm install npm run dev # or npm start
-
----
 ## Technologies 
 - React JS
 - React Router
@@ -126,3 +111,4 @@ Sample Response:<br>
 ## Contact 
 
 For bugs or feature requests, please reach out to muhasinalikhan@gmail.com
+
